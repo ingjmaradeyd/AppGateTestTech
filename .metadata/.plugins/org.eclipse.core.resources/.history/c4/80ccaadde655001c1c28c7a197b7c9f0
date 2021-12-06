@@ -1,0 +1,13 @@
+package co.com.appgate.prueba.jersey;
+
+import org.glassfish.jersey.server.ResourceConfig;
+
+import co.com.appgate.prueba.controller.SumaServiceController;
+
+public class JerseyConfig extends ResourceConfig{
+	
+	public JerseyConfig() {
+		register(SumaServiceController.class);
+	}
+
+}

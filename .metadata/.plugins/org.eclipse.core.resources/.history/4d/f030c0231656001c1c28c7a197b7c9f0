@@ -1,0 +1,14 @@
+package co.com.appgate.prueba.business;
+
+import co.com.appgate.prueba.bo.OperationObject;
+import co.com.appgate.prueba.bo.ResponseObject;
+
+public class OperationBusinessImp implements OperationBusiness {
+
+	@Override
+	public ResponseObject doOperation(OperationObject operationObject) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

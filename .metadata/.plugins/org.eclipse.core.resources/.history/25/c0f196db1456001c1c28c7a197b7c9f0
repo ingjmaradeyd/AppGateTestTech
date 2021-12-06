@@ -1,0 +1,5 @@
+package co.com.appgate.prueba.business.factory;
+
+public class SumaImpl {
+
+}

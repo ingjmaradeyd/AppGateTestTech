@@ -1,0 +1,17 @@
+package co.com.appgate.prueba.business;
+
+import org.springframework.stereotype.Component;
+
+import co.com.appgate.prueba.bo.OperationObject;
+import co.com.appgate.prueba.bo.ResponseObject;
+
+@Component
+public class OperationBusinessImp implements OperationBusiness {
+
+	@Override
+	public ResponseObject doOperation(OperationObject operationObject) {
+		String operation = operationObject.getOperation();
+		
+	}
+
+}

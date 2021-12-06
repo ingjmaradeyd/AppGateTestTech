@@ -1,0 +1,64 @@
+package co.com.appgate.prueba.business;
+
+import java.math.BigDecimal;
+
+import javax.ws.rs.core.Response;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import co.com.appgate.prueba.bo.OperationObject;
+import co.com.appgate.prueba.bo.ResponseObject;
+import co.com.appgate.prueba.factory.DivisionImpl;
+import co.com.appgate.prueba.factory.MultiplicationImpl;
+import co.com.appgate.prueba.factory.SubstractionImpl;
+import co.com.appgate.prueba.factory.SumImpl;
+import co.com.appgate.prueba.utils.Constants;
+
+@Component
+public class OperationBusinessImp implements OperationBusiness {
+	
+	@Autowired
+	private SumImpl sumImpl;
+	
+	@Autowired
+	private SubstractionImpl substractionImpl;
+	
+	@Autowired
+	private MultiplicationImpl multiplicationImpl;
+	
+	@Autowired
+	private DivisionImpl divisionImpl;
+
+	@Override
+	public ResponseObject doOperation(OperationObject operationObject) throws Exception {
+		String operation = operationObject.getOperation().toUpperCase();
+		ResponseObject response = new ResponseObject();
+		if (operation.equals(Constants.Operations.SUM)) {
+			Response result = sumImpl.operate(operationObject);
+			response.setOperation(Constants.Operations.SUM);
+		}
+
+		if (operation.equals(Constants.Operations.SUBSTRACCION)) {
+			Response result = substractionImpl.operate(operationObject);
+			response.setOperation(Constants.Operations.SUBSTRACCION);
+		}
+
+		if (operation.equals(Constants.Operations.MULTIPLICACTION)) {
+			Response result = multiplicationImpl.operate(operationObject);
+			response.setOperation(Constants.Operations.MULTIPLICACTION);
+		}
+
+		if (operation.equals(Constants.Operations.DIVISION)) {
+			Response result = divisionImpl.operate(operationObject);
+			response.setOperation(Constants.Operations.DIVISION);
+		}
+
+		if (operation.equals(Constants.Operations.POWERING)) {
+
+		}
+		
+		return response;
+	}
+
+}
