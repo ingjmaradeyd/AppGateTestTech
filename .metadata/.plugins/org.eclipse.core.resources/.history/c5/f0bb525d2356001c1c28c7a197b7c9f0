@@ -1,0 +1,20 @@
+package co.com.appgate.prueba.factory;
+
+import java.math.BigDecimal;
+
+import co.com.appgate.prueba.bo.OperationObject;
+import co.com.appgate.prueba.factory.interfaces.MathOperation;
+
+public class SumImpl implements MathOperation{
+	
+	private BigDecimal callServiceSum(BigDecimal number1, BigDecimal number2) {
+		
+	}
+
+	@Override
+	public BigDecimal operate(OperationObject operationObject) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

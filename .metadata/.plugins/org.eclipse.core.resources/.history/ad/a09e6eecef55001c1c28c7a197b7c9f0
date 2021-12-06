@@ -1,0 +1,28 @@
+package co.com.appgate.prueba.jersey;
+
+import javax.annotation.PostConstruct;
+import javax.ws.rs.ApplicationPath;
+
+import org.glassfish.jersey.server.ResourceConfig;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.client.RestTemplate;
+
+import co.com.appgate.prueba.controller.SumaServiceController;
+
+@Configuration
+@ApplicationPath("/")
+public class JerseyConfig extends ResourceConfig{
+	
+	@PostConstruct
+	public void init() {
+		register(SumaServiceController.class);
+	}
+	
+	@Bean
+    public RestTemplate restTemplate() {
+        RestTemplate restTemplate = new RestTemplate();
+        return restTemplate;
+    }
+
+}

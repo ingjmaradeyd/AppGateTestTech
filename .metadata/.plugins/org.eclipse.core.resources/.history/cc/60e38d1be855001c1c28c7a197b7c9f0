@@ -1,0 +1,15 @@
+package co.com.appgate.prueba.jersey;
+
+import org.glassfish.jersey.server.ResourceConfig;
+import org.springframework.stereotype.Component;
+
+import co.com.appgate.prueba.controller.SumaServiceController;
+
+@Component
+public class JerseyConfigurator extends ResourceConfig {
+	
+	public JerseyConfigurator() {
+		register(SumaServiceController.class);
+	}
+
+}

@@ -1,0 +1,45 @@
+package co.com.appgate.prueba.factory;
+
+import java.math.BigDecimal;
+
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.client.Invocation.Builder;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.Response;
+import co.com.appgate.prueba.utils.Constants;
+
+import org.springframework.stereotype.Component;
+
+import com.google.gson.Gson;
+
+import co.com.appgate.prueba.bo.OperationObject;
+import co.com.appgate.prueba.bo.SumObject;
+import co.com.appgate.prueba.factory.interfaces.MathOperation;
+
+@Component
+public class SumImpl implements MathOperation {
+
+	private static final String port = "8090";
+	private static final String operation = "/sumservice/sumoperation";
+
+	private BigDecimal callServiceSum(BigDecimal number1, BigDecimal number2) {
+		SumObject sumObject = new SumObject();
+		sumObject.setNumber1(number1);
+		sumObject.setNumber2(number2);
+		Gson gson = new Gson();
+		String jsonString = gson.toJson(sumObject);
+		Client client = ClientBuilder.newClient();
+		WebTarget webTarget = client.target(Constants.ServicesData.BASE_URL + port + operation);
+		Builder builder = webTarget.request();
+		Response response = builder.post(Entity.json(jsonString));
+		return response.readEntity(BigDecimal.class);
+	}
+
+	@Override
+	public BigDecimal operate(OperationObject operationObject) {
+		return callServiceSum(operationObject.getNumber1(), operationObject.getNumber2());
+	}
+
+}

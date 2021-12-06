@@ -1,0 +1,12 @@
+package co.com.appgate.prueba.business.impl;
+
+import org.springframework.stereotype.Component;
+
+import co.com.appgate.prueba.business.OperationBusinnes;
+
+@Component
+public class OperationBUssinesImpl implements OperationBusinnes{
+
+	
+	
+}

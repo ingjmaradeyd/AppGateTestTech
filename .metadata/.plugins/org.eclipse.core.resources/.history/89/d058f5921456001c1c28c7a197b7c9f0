@@ -1,0 +1,12 @@
+package co.com.appgate.prueba.business;
+
+import java.math.BigDecimal;
+
+import co.com.appgate.prueba.bo.OperationObject;
+
+@FunctionalInterface
+public interface OperationBusinnes {
+
+	public BigDecimal operate(OperationObject operationObject);
+	
+}

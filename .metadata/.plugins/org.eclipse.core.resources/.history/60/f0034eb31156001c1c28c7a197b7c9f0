@@ -1,0 +1,26 @@
+package co.com.appgate.prueba.bo;
+
+import java.math.BigDecimal;
+
+public class ResponseObject {
+
+	private String operation;
+	private BigDecimal response;
+
+	public String getOperation() {
+		return operation;
+	}
+
+	public void setOperation(String operation) {
+		this.operation = operation;
+	}
+
+	public BigDecimal getResponse() {
+		return response;
+	}
+
+	public void setResponse(BigDecimal response) {
+		this.response = response;
+	}
+
+}

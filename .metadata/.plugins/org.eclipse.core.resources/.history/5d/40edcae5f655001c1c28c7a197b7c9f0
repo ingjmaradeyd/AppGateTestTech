@@ -1,0 +1,29 @@
+package co.com.appgate.prueba.controller;
+
+import javax.ws.rs.Consumes;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.ResponseBuilder;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestParam;
+
+
+@Controller
+@Path("/api")
+public class SumaServiceController {
+
+	@POST
+	@Path("/sum")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response doSum(@RequestParam int number1, 
+			              @RequestParam int number2) {
+	  ResponseBuilder response = Response.ok(Integer.sum(number1, number2));
+	  return response.build();
+	}
+	
+}

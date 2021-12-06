@@ -1,0 +1,29 @@
+package co.com.appgate.prueba.business.impl;
+
+import org.springframework.stereotype.Component;
+
+import co.com.appgate.prueba.bo.OperationObject;
+import co.com.appgate.prueba.bo.ResponseObject;
+import co.com.appgate.prueba.business.OperationBusinnes;
+
+@Component
+public class OperationBussinesImpl {
+
+	
+	public ResponseObject doOperation(OperationObject operationObject) {
+		
+		OperationBusinnes operation = (operationObjectObj)->{
+			return operationObjectObj.getNumber1().add(operationObjectObj.getNumber2());
+		};
+		
+		ResponseObject response = new ResponseObject();
+		response.setOperation(operationObject.getOperation());
+		response.setResponse(operation.result(operationObject));
+		
+		return response;
+		
+	}
+
+	
+	
+}

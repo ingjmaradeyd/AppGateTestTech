@@ -1,0 +1,38 @@
+package co.com.appgate.prueba.factory;
+
+import java.math.BigDecimal;
+
+import javax.ws.rs.core.Response;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.web.client.RestTemplate;
+
+import com.google.gson.Gson;
+
+import co.com.appgate.prueba.bo.OperationObject;
+import co.com.appgate.prueba.bo.SumObject;
+import co.com.appgate.prueba.factory.interfaces.MathOperation;
+
+@Component
+public class SumImpl implements MathOperation{
+	
+	
+	private BigDecimal callServiceSum(BigDecimal number1, BigDecimal number2) {
+		String url = "http://localhost:8090/sumservice/sumoperation";
+		SumObject sumObject = new SumObject();
+		sumObject.setNumber1(number1);
+		sumObject.setNumber2(number2);
+		Gson gson = new Gson();		
+		
+		BigDecimal responseBigDecimal = null;
+		
+		return responseBigDecimal;
+	}
+
+	@Override
+	public BigDecimal operate(OperationObject operationObject) {
+		return callServiceSum(operationObject.getNumber1(), operationObject.getNumber2());
+	}
+
+}

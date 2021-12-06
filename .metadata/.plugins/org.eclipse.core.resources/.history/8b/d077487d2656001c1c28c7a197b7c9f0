@@ -1,0 +1,48 @@
+package co.com.appgate.prueba.business;
+
+import java.math.BigDecimal;
+
+import org.springframework.stereotype.Component;
+
+import co.com.appgate.prueba.bo.OperationObject;
+import co.com.appgate.prueba.bo.ResponseObject;
+import co.com.appgate.prueba.factory.SumImpl;
+import co.com.appgate.prueba.factory.interfaces.MathOperation;
+import co.com.appgate.prueba.utils.Constants;
+
+@Component
+public class OperationBusinessImp implements OperationBusiness {
+	
+	
+
+	@Override
+	public ResponseObject doOperation(OperationObject operationObject) {
+		String operation = operationObject.getOperation().toUpperCase();
+		ResponseObject response = new ResponseObject();
+		if (operation.equals(Constants.SUM)) {
+			SumImpl sumImpl = new SumImpl();
+			BigDecimal result = sumImpl.operate(operationObject);
+			response.setOperation(Constants.SUM);
+			response.setResponse(result);
+		}
+
+		if (operation.equals(Constants.SUBSTRACCION)) {
+
+		}
+
+		if (operation.equals(Constants.MULTIPLICACTION)) {
+
+		}
+
+		if (operation.equals(Constants.DIVISION)) {
+
+		}
+
+		if (operation.equals(Constants.POWERING)) {
+
+		}
+		
+		return response;
+	}
+
+}
