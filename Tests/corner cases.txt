@@ -1,0 +1,8 @@
+CORNER CASES
+---------------------------------------
+
+1. Divisin por cero -> explicado en la clase de prueba PruebaTecnicaInicialApplicationTests
+
+2. generar token -> se genera token de seguridad para la ejecucion de servicios
+
+3. logout -> al cerrar la sesion se elimina el token de la cabecera

@@ -91,6 +91,16 @@ class PruebaTecnicaInicialApplicationTests {
 		assertEquals(BigDecimal.ONE, responseObj.getResponse());
 	}
 	
+	/**
+	 * Corner case
+	 * ----------------------
+	 * Division por cero
+	 * 
+	 * La division por cero no se debe permitir por lo que se tiene enc uenta este test
+	 * 
+	 * 
+	 */
+	
 	@Test
 	void divisionPorCero() {
 		OperationDTO operation = new OperationDTO();
@@ -114,6 +124,14 @@ class PruebaTecnicaInicialApplicationTests {
 		ResponseObject responseObj = calculator.operate(operation);	
 		assertEquals(responseObj.getResponse(),new BigDecimal("9"));
 	}
+	
+	/**
+	 * Corner case
+	 * ---------------------
+	 * Se define un token para la autenticacion a los servicios de operacion
+	 * 
+	 * @throws ParseException
+	 */
 	
 	@Test
 	void generaToken() throws ParseException {
